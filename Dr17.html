@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2487.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.7px Arial; -webkit-text-stroke: #000000}
+    span.s1 {font-kerning: none}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
+<p class="p1"><span class="s1">&lt;html lang="en"&gt;</span></p>
+<p class="p1"><span class="s1">&lt;head&gt;</span></p>
+<p class="p1"><span class="s1">    &lt;meta charset="UTF-8"&gt;</span></p>
+<p class="p1"><span class="s1">    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span></p>
+<p class="p1"><span class="s1">    &lt;title&gt;Valentine's Adventure&lt;/title&gt;</span></p>
+<p class="p1"><span class="s1">    &lt;style&gt;</span></p>
+<p class="p1"><span class="s1">        body {</span></p>
+<p class="p1"><span class="s1">            font-family: Arial, sans-serif;</span></p>
+<p class="p1"><span class="s1">            background-color: #ffe6e6;</span></p>
+<p class="p1"><span class="s1">            text-align: center;</span></p>
+<p class="p1"><span class="s1">            color: #d63384;</span></p>
+<p class="p1"><span class="s1">        }</span></p>
+<p class="p1"><span class="s1">        h1 {</span></p>
+<p class="p1"><span class="s1">            font-size: 2.5em;</span></p>
+<p class="p1"><span class="s1">        }</span></p>
+<p class="p1"><span class="s1">        #map {</span></p>
+<p class="p1"><span class="s1">            height: 500px;</span></p>
+<p class="p1"><span class="s1">            width: 80%;</span></p>
+<p class="p1"><span class="s1">            max-width: 800px;</span></p>
+<p class="p1"><span class="s1">            margin: auto;</span></p>
+<p class="p1"><span class="s1">        }</span></p>
+<p class="p1"><span class="s1">    &lt;/style&gt;</span></p>
+<p class="p1"><span class="s1">    &lt;script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAmx1h1Yja75DdaLRYqA-yiegHy0WQeiyQ&amp;callback=initMap" async defer&gt;&lt;/script&gt;</span></p>
+<p class="p1"><span class="s1">    &lt;script&gt;</span></p>
+<p class="p1"><span class="s1">        function initMap() {</span></p>
+<p class="p1"><span class="s1">            var locations = [</span></p>
+<p class="p1"><span class="s1">                {lat: 40.7216, lng: -73.9952, title: "Cafe Gitane", riddle: "Paris meets New York..."},</span></p>
+<p class="p1"><span class="s1">                {lat: 40.7254, lng: -73.9926, title: "Mast Books", riddle: "Pages turn..."},</span></p>
+<p class="p1"><span class="s1">                {lat: 40.7175, lng: -73.9971, title: "161 Hester Street", riddle: "Hidden in Chinatown..."},</span></p>
+<p class="p1"><span class="s1">                {lat: 40.7231, lng: -73.9903, title: "Boulton and Watt", riddle: "Where cocktails flow..."},</span></p>
+<p class="p1"><span class="s1">                {lat: 40.7281, lng: -73.9882, title: "30 St Marks Place", riddle: "A street alive..."}</span></p>
+<p class="p1"><span class="s1">            ];</span></p>
+<p class="p1"><span class="s1">            </span></p>
+<p class="p1"><span class="s1">            var map = new google.maps.Map(document.getElementById('map'), {</span></p>
+<p class="p1"><span class="s1">                zoom: 14,</span></p>
+<p class="p1"><span class="s1">                center: {lat: 40.7223, lng: -73.9943}</span></p>
+<p class="p1"><span class="s1">            });</span></p>
+<p class="p1"><span class="s1">            </span></p>
+<p class="p1"><span class="s1">            locations.forEach(function(location) {</span></p>
+<p class="p1"><span class="s1">                var marker = new google.maps.Marker({</span></p>
+<p class="p1"><span class="s1">                    position: {lat: location.lat, lng: location.lng},</span></p>
+<p class="p1"><span class="s1">                    map: map,</span></p>
+<p class="p1"><span class="s1">                    title: location.title</span></p>
+<p class="p1"><span class="s1">                });</span></p>
+<p class="p1"><span class="s1">                </span></p>
+<p class="p1"><span class="s1">                var infoWindow = new google.maps.InfoWindow({</span></p>
+<p class="p1"><span class="s1">                    content: &lt;h3&gt;${location.title}&lt;/h3&gt;&lt;p&gt;&lt;b&gt;Riddle:&lt;/b&gt; ${location.riddle}&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1">                });</span></p>
+<p class="p1"><span class="s1">                </span></p>
+<p class="p1"><span class="s1">                marker.addListener('click', function() {</span></p>
+<p class="p1"><span class="s1">                    infoWindow.open(map, marker);</span></p>
+<p class="p1"><span class="s1">                });</span></p>
+<p class="p1"><span class="s1">            });</span></p>
+<p class="p1"><span class="s1">        }</span></p>
+<p class="p1"><span class="s1">    &lt;/script&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
+<p class="p1"><span class="s1">&lt;body&gt;</span></p>
+<p class="p1"><span class="s1">    &lt;h1&gt;💖 Valentine's Adventure 💖&lt;/h1&gt;</span></p>
+<p class="p1"><span class="s1">    &lt;p&gt;Explore the city, solve riddles, and complete romantic challenges!&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1">    &lt;div id="map"&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+</body>
+</html>
